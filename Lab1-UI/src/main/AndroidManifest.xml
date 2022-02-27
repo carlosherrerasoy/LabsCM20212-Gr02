@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Labs20212Gr02">
         <activity
+            android:name=".ContactDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PersonalDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
