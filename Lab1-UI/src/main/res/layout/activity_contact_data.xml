@@ -75,18 +75,18 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-
         android:id="@+id/addressEditText"
-        android:lines="1"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="296dp"
         android:layout_height="45dp"
         android:layout_marginBottom="200dp"
         android:ems="10"
         android:hint="@string/address"
         android:inputType="textPersonName"
+        android:lines="1"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -165,6 +165,22 @@
         app:layout_constraintTop_toBottomOf="@+id/emailEditText"
         app:layout_constraintVertical_bias="0.83"
         app:srcCompat="@drawable/ic_world_light" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="547dp"
+        android:layout_height="143dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="287dp"
+        tools:layout_editor_absoluteY="780dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
