@@ -6,63 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".ContactDataActivity">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:id="@+id/phoneEditText"
         android:layout_width="296dp"
         android:layout_height="45dp"
+        android:lines="1"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
         android:ems="10"
         android:hint="@string/phone"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toTopOf="@+id/countryEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.776" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:id="@+id/emailEditText"
+        android:lines="1"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
         android:layout_width="296dp"
         android:layout_height="45dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.692"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toEndOf="@+id/phoneEditText" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:id="@+id/countryEditText"
         android:layout_width="296dp"
         android:layout_height="45dp"
+        android:lines="1"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
         android:ems="10"
         android:hint="@string/country"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName5"
+        app:layout_constraintBottom_toTopOf="@+id/addressEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.901" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:id="@+id/cityEditText"
         android:layout_width="296dp"
         android:layout_height="45dp"
+        android:lines="1"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
         android:ems="10"
         android:hint="@string/city"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toBottomOf="@+id/countryEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.698"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintStart_toEndOf="@+id/countryEditText" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        android:id="@+id/addressEditText"
         android:layout_width="296dp"
         android:layout_height="45dp"
+        android:lines="1"
+        app:helperText="@string/required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
         android:ems="10"
         android:hint="@string/address"
         android:inputType="textPersonName"
@@ -73,7 +93,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.836" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,60 +105,60 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.073" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView2"
         android:layout_width="23dp"
         android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName4"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName4"
+        app:layout_constraintBottom_toBottomOf="@+id/cityEditText"
+        app:layout_constraintEnd_toStartOf="@+id/cityEditText"
         app:layout_constraintHorizontal_bias="0.989"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.957"
         app:srcCompat="@drawable/ic_city_light" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneEditText"
+        app:layout_constraintEnd_toStartOf="@+id/phoneEditText"
         app:layout_constraintHorizontal_bias="0.761"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.94"
         app:srcCompat="@drawable/ic_phone_light" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintBottom_toBottomOf="@+id/emailEditText"
+        app:layout_constraintEnd_toStartOf="@+id/emailEditText"
         app:layout_constraintHorizontal_bias="0.996"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.9"
         app:srcCompat="@drawable/ic_email_light" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName5"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName5"
+        app:layout_constraintBottom_toBottomOf="@+id/addressEditText"
+        app:layout_constraintEnd_toStartOf="@+id/addressEditText"
         app:layout_constraintHorizontal_bias="0.793"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.965"
         app:srcCompat="@drawable/ic_address_light" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPersonName3"
+        app:layout_constraintBottom_toBottomOf="@+id/countryEditText"
+        app:layout_constraintEnd_toStartOf="@+id/countryEditText"
         app:layout_constraintHorizontal_bias="0.793"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
