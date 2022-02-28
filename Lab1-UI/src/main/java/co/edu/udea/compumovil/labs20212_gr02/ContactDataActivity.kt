@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.EditText
 import android.util.Log
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
+import android.widget.TextView
 
 
 class ContactDataActivity : AppCompatActivity() {
@@ -16,33 +19,52 @@ class ContactDataActivity : AppCompatActivity() {
         setContentView(R.layout.activity_contact_data)
         emailFocusListener()
         nextClickButtonListener()
+        enterHiddenListener()
+
     }
+
+    private fun enterHiddenListener() {
+        findViewById<EditText>(R.id.addressEditText).setOnFocusChangeListener { _, focused ->
+            if (focused && !areFieldsRequiredFilled()) {
+                findViewById<EditText>(R.id.addressEditText).imeOptions=EditorInfo.IME_ACTION_NEXT;
+            }else{
+                findViewById<EditText>(R.id.addressEditText).imeOptions=EditorInfo.IME_ACTION_DONE;
+            }
+
+        }
+    }
+
+
 
     private fun nextClickButtonListener() {
         findViewById<Button>(R.id.contactNextButton).setOnClickListener {
-            validateFields()
+            tryToGenerateLogs()
             val i = 0
         }
     }
 
-    // Validates all the required EditTexts
-    private fun validateFields() {
+    // Calls  required logs
+    private fun tryToGenerateLogs() {
 
+        if (areFieldsRequiredFilled()) {
+            generateContactLogs()
+        }
+    }
+
+    //If required editText fields are filled returns true
+    private fun areFieldsRequiredFilled(): Boolean {
         val phoneEditTextId = R.id.phoneEditText
         val emailEditTextId = R.id.emailEditText
         val countryEditTextId = R.id.countryEditText
 
-        val validEmail: Boolean? = validEmail()
-        val validatedPhone: Boolean? = validateIsEmptyEditText(phoneEditTextId)
-        val validatedEmailEditTextId: Boolean? = validateIsEmptyEditText(emailEditTextId)
-        val validatedCountryEditTextId: Boolean? = validateIsEmptyEditText(countryEditTextId)
-
-
-        if (validatedPhone == true && validatedEmailEditTextId == true && validatedCountryEditTextId == true && validEmail == true) {
-            generateContactLogs()
+        val validEmail: Boolean= validEmail()
+        val validatedPhone: Boolean = validateIsEmptyEditText(phoneEditTextId)
+        val validatedEmailEditTextId: Boolean = validateIsEmptyEditText(emailEditTextId)
+        val validatedCountryEditTextId: Boolean = validateIsEmptyEditText(countryEditTextId)
+        if (validatedPhone && validatedEmailEditTextId && validatedCountryEditTextId && validEmail) {
+            return true;
         }
-
-
+        return false
     }
 
     //Generates logs for required and optional EditTexts
@@ -52,14 +74,23 @@ class ContactDataActivity : AppCompatActivity() {
         Log.i(getString(R.string.phone), findViewById<EditText>(R.id.phoneEditText).text.toString())
         val address = findViewById<EditText>(R.id.addressEditText).text.toString()
 
-        if(!address.isEmpty()){
-            Log.i(getString(R.string.address), findViewById<EditText>(R.id.addressEditText).text.toString())
+        if (!address.isEmpty()) {
+            Log.i(
+                getString(R.string.address),
+                findViewById<EditText>(R.id.addressEditText).text.toString()
+            )
         }
         Log.i(getString(R.string.email), findViewById<EditText>(R.id.emailEditText).text.toString())
-        Log.i(getString(R.string.country), findViewById<EditText>(R.id.countryEditText).text.toString())
+        Log.i(
+            getString(R.string.country),
+            findViewById<EditText>(R.id.countryEditText).text.toString()
+        )
         val city = findViewById<EditText>(R.id.cityEditText).text.toString()
-        if(!city.isEmpty()){
-            Log.i(getString(R.string.city), findViewById<EditText>(R.id.addressEditText).text.toString())
+        if (!city.isEmpty()) {
+            Log.i(
+                getString(R.string.city),
+                findViewById<EditText>(R.id.addressEditText).text.toString()
+            )
         }
 
     }
@@ -77,7 +108,7 @@ class ContactDataActivity : AppCompatActivity() {
     }
 
     //Validates if editText is empty and if it is, sets the error message
-    private fun validateIsEmptyEditText(fieldId: Int): Boolean? {
+    private fun validateIsEmptyEditText(fieldId: Int): Boolean {
         val editText = findViewById<EditText>(fieldId)
         if (editText.text.toString().isEmpty()) {
             editText.error = getString(R.string.required)
@@ -87,7 +118,7 @@ class ContactDataActivity : AppCompatActivity() {
     }
 
     //Validates email correct structure
-    private fun validEmail(): Boolean? {
+    private fun validEmail(): Boolean {
         val emailText = findViewById<EditText>(R.id.emailEditText)
         if (!Patterns.EMAIL_ADDRESS.matcher(emailText.text.toString()).matches()) {
             emailText.error = getString(R.string.incorrectEmailMessage)
