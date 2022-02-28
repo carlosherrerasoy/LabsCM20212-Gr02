@@ -6,5 +6,7 @@
     <string name="city">Ciudad</string>
     <string name="address">Dirección</string>
     <string name="contactInformation">Información de contacto</string>
+    <string name="incorrectEmailMessage">Correo inválido</string>
     <string name="required">Requerido</string>
+    <string name="next">Siguiente</string>
 </resources>
