@@ -167,7 +167,7 @@
         app:srcCompat="@drawable/ic_world_light" />
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/contactNextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

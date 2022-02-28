@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.EditText
-import android.content.Intent
 import android.util.Log
 import android.widget.Button
 
@@ -22,55 +21,77 @@ class ContactDataActivity : AppCompatActivity() {
     private fun nextClickButtonListener() {
         findViewById<Button>(R.id.contactNextButton).setOnClickListener {
             validateFields()
-            val i=0
+            val i = 0
         }
     }
 
+    // Validates all the required EditTexts
     private fun validateFields() {
 
-        val phoneEditTextId=R.id.phoneEditText
+        val phoneEditTextId = R.id.phoneEditText
         val emailEditTextId = R.id.emailEditText
-        val countryEditTextId=R.id.countryEditText
+        val countryEditTextId = R.id.countryEditText
 
-        val  validEmail: Boolean?=validEmail()
-        val validatedPhone: Boolean?=validateIsEmptyEditText(phoneEditTextId)
-        val validatedEmailEditTextId: Boolean?=validateIsEmptyEditText(emailEditTextId)
-        val validatedCountryEditTextId: Boolean?=validateIsEmptyEditText(countryEditTextId)
+        val validEmail: Boolean? = validEmail()
+        val validatedPhone: Boolean? = validateIsEmptyEditText(phoneEditTextId)
+        val validatedEmailEditTextId: Boolean? = validateIsEmptyEditText(emailEditTextId)
+        val validatedCountryEditTextId: Boolean? = validateIsEmptyEditText(countryEditTextId)
 
 
-         if(validatedPhone==true && validatedEmailEditTextId==true && validatedCountryEditTextId==true && validEmail==true){
-
-         }
+        if (validatedPhone == true && validatedEmailEditTextId == true && validatedCountryEditTextId == true && validEmail == true) {
+            generateContactLogs()
+        }
 
 
     }
 
+    //Generates logs for required and optional EditTexts
+    private fun generateContactLogs() {
 
-    //On email editText focus change
+        Log.i("Información de contacto", " ")
+        Log.i(getString(R.string.phone), findViewById<EditText>(R.id.phoneEditText).text.toString())
+        val address = findViewById<EditText>(R.id.addressEditText).text.toString()
+
+        if(!address.isEmpty()){
+            Log.i(getString(R.string.address), findViewById<EditText>(R.id.addressEditText).text.toString())
+        }
+        Log.i(getString(R.string.email), findViewById<EditText>(R.id.emailEditText).text.toString())
+        Log.i(getString(R.string.country), findViewById<EditText>(R.id.countryEditText).text.toString())
+        val city = findViewById<EditText>(R.id.cityEditText).text.toString()
+        if(!city.isEmpty()){
+            Log.i(getString(R.string.city), findViewById<EditText>(R.id.addressEditText).text.toString())
+        }
+
+    }
+
+
+    //On email editText focus change validates email
     private fun emailFocusListener() {
 
         findViewById<EditText>(R.id.emailEditText).setOnFocusChangeListener { _, focused ->
             if (!focused) {
-               validEmail()
+                validEmail()
             }
 
         }
     }
 
-    private fun validateIsEmptyEditText(fieldId:Int): Boolean?{
-        val editText=findViewById<EditText>(fieldId)
-        if(editText.text.toString().isEmpty()){
-          editText.error=getString(R.string.required)
+    //Validates if editText is empty and if it is, sets the error message
+    private fun validateIsEmptyEditText(fieldId: Int): Boolean? {
+        val editText = findViewById<EditText>(fieldId)
+        if (editText.text.toString().isEmpty()) {
+            editText.error = getString(R.string.required)
             return false
         }
         return true
     }
 
+    //Validates email correct structure
     private fun validEmail(): Boolean? {
         val emailText = findViewById<EditText>(R.id.emailEditText)
-         if (!Patterns.EMAIL_ADDRESS.matcher(emailText.text.toString()).matches()) {
-             emailText.error=getString(R.string.incorrectEmailMessage)
-             return false
+        if (!Patterns.EMAIL_ADDRESS.matcher(emailText.text.toString()).matches()) {
+            emailText.error = getString(R.string.incorrectEmailMessage)
+            return false
         }
         return true
     }

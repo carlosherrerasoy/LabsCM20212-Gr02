@@ -16,7 +16,7 @@
         app:helperTextTextColor="@android:color/holo_red_dark"
         android:ems="10"
         android:hint="@string/phone"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/countryEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
@@ -35,7 +35,7 @@
         android:layout_marginEnd="4dp"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="@+id/phoneEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.692"
@@ -164,5 +164,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.957"
         app:srcCompat="@drawable/ic_world_light" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/contactNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintStart_toEndOf="@+id/addressEditText"
+        app:layout_constraintTop_toBottomOf="@+id/cityEditText"
+        app:layout_constraintVertical_bias="0.484" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
