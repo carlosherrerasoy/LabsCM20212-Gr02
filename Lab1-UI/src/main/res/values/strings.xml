@@ -9,4 +9,13 @@
     <string name="incorrectEmailMessage">Correo inválido</string>
     <string name="required">Requerido</string>
     <string name="next">Siguiente</string>
+    <string name="personalInformation">Información Personal</string>
+    <string name="nombresTitulo">Nombres</string>
+    <string name="nombreHelpText">Nombre</string>
+    <string name="apellidosHintValue">Apellidos</string>
+    <string name="sexoTitulo">Sexo</string>
+    <string name="hombreRadioButtonText">Hombre</string>
+    <string name="mujerRadioButtonText">Mujer</string>
+    <string name="fechaNacimientoLabelText">Fecha nacimiento</string>
+    <string name="seleccionarButtonText">Seleccionar</string>
 </resources>
