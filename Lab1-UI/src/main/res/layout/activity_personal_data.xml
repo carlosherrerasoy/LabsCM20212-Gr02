@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="104dp"
         android:text="@string/nombresTitulo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="44dp"
         android:text="@string/sexoTitulo"
         app:layout_constraintStart_toEndOf="@+id/shapeableImageView3"
         app:layout_constraintTop_toBottomOf="@+id/apellidosEditText" />
@@ -33,10 +33,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="46dp"
         android:labelFor="@id/fechaNacimientoEditDate"
         android:text="@string/fechaNacimientoLabelText"
-        app:layout_constraintStart_toEndOf="@+id/shapeableImageView4"
+        app:layout_constraintStart_toEndOf="@+id/shapeableImageView5"
         app:layout_constraintTop_toBottomOf="@+id/sexoHombreRadio" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -47,89 +47,50 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/ic_phone_light" />
+        app:srcCompat="@drawable/ic_persona_light" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shapeableImageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shapeableImageView"
-        app:srcCompat="@drawable/ic_phone_light" />
+        app:srcCompat="@drawable/ic_persona_light" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shapeableImageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="51dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shapeableImageView2"
-        app:srcCompat="@drawable/ic_phone_light" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView3"
-        app:srcCompat="@drawable/ic_phone_light" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView3"
-        app:srcCompat="@drawable/ic_phone_light" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView3"
-        app:srcCompat="@drawable/ic_phone_light" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/shapeableImageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shapeableImageView3"
-        app:srcCompat="@drawable/ic_phone_light" />
+        app:srcCompat="@drawable/ic_sexo_light" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shapeableImageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shapeableImageView3"
-        app:srcCompat="@drawable/ic_phone_light" />
+        app:srcCompat="@drawable/ic_calendar_light" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shapeableImageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="46dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fechaNacimientoEditDate"
-        app:srcCompat="@drawable/ic_phone_light" />
+        app:srcCompat="@drawable/ic_gorro_light" />
 
     <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:id="@+id/nombreEditText"
         android:layout_width="0dp"
         android:layout_height="48dp"
@@ -143,10 +104,11 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/apellidosEditText"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         android:hint="@string/apellidosHintValue"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,6 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:text="@string/hombreRadioButtonText"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/apellidosEditText" />
@@ -168,35 +131,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:text="@string/mujerRadioButtonText"
         app:layout_constraintStart_toEndOf="@+id/sexoHombreRadio"
         app:layout_constraintTop_toBottomOf="@+id/apellidosEditText" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/fechaNacimientoEditDate"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/sexoMujerRadio"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/sexoMujerRadio" />
 
     <Spinner
         android:id="@+id/escolaridadSpinner"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/shapeableImageView9"
         app:layout_constraintTop_toBottomOf="@+id/fechaNacimientoEditDate"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/seleccionarButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

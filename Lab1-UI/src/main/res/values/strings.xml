@@ -18,4 +18,5 @@
     <string name="mujerRadioButtonText">Mujer</string>
     <string name="fechaNacimientoLabelText">Fecha nacimiento</string>
     <string name="seleccionarButtonText">Seleccionar</string>
+    <string name="tituloPersonalData">Información Personal</string>
 </resources>
