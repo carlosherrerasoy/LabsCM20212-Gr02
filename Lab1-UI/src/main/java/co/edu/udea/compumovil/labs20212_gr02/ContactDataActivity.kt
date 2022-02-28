@@ -35,21 +35,35 @@ class ContactDataActivity : AppCompatActivity() {
     private fun enterHiddenListener() {
         findViewById<EditText>(R.id.addressEditText).setOnFocusChangeListener { _, focused ->
             if (focused && !areFieldsRequiredFilled()) {
-                findViewById<EditText>(R.id.addressEditText).imeOptions=EditorInfo.IME_ACTION_NEXT;
-            }else{
-                findViewById<EditText>(R.id.addressEditText).imeOptions=EditorInfo.IME_ACTION_DONE;
+                findViewById<EditText>(R.id.addressEditText).imeOptions =
+                    EditorInfo.IME_ACTION_NEXT;
+            } else {
+                findViewById<EditText>(R.id.addressEditText).imeOptions =
+                    EditorInfo.IME_ACTION_DONE;
             }
 
         }
     }
 
-    fun getAllCountries(){
+    fun getAllCountries() {
 
-        service.getAllPosts().enqueue(object: Callback<List<Countries>> {
-            override fun onResponse(call: Call<List<Countries>>?, response: Response<List<Countries>>?) {
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://restcountries.com/v3.1/subregion/south%20america/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        service = retrofit.create<ApiService>(ApiService::class.java)
+
+
+        service.getAllCountries().enqueue(object : Callback<List<Countries>> {
+            override fun onResponse(
+                call: Call<List<Countries>>?,
+                response: Response<List<Countries>>?
+            ) {
                 val posts = response?.body()
-                Log.i("countries", Gson().toJson(posts))
+                Log.i("countries", posts.toString())
             }
+
             override fun onFailure(call: Call<List<Countries>>?, t: Throwable?) {
                 t?.printStackTrace()
             }
@@ -65,14 +79,8 @@ class ContactDataActivity : AppCompatActivity() {
 
     // Calls  required logs
     private fun tryToGenerateLogs() {
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
 
-        service = retrofit.create<ApiService>(ApiService::class.java)
-
-
+        getAllCountries()
 
         if (areFieldsRequiredFilled()) {
             generateContactLogs()
@@ -85,7 +93,7 @@ class ContactDataActivity : AppCompatActivity() {
         val emailEditTextId = R.id.emailEditText
         val countryEditTextId = R.id.countryEditText
 
-        val validEmail: Boolean= validEmail()
+        val validEmail: Boolean = validEmail()
         val validatedPhone: Boolean = validateIsEmptyEditText(phoneEditTextId)
         val validatedEmailEditTextId: Boolean = validateIsEmptyEditText(emailEditTextId)
         val validatedCountryEditTextId: Boolean = validateIsEmptyEditText(countryEditTextId)
