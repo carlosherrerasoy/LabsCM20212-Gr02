@@ -24,4 +24,5 @@
     <string name="secundaria">Secundaria</string>
     <string name="universitaria">Universitaria</string>
     <string name="otra_escolaridad">Otra</string>
+    <string name="escolaridad_titulo">Grado Escolaridad</string>
 </resources>

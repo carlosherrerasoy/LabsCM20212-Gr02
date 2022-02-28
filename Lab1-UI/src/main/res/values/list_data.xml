@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="escolaridad">
+        <item>@string/escolaridad_titulo</item>
         <item>@string/primaria</item>
         <item>@string/secundaria</item>
         <item>@string/universitaria</item>
