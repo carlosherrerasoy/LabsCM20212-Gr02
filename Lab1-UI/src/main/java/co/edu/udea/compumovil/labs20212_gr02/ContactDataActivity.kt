@@ -5,13 +5,22 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.EditText
 import android.util.Log
-import android.view.KeyEvent
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
-import android.widget.TextView
+import co.edu.udea.compumovil.labs20212_gr02.listCountries.ApiService
+import co.edu.udea.compumovil.labs20212_gr02.listCountries.Countries
+
+import com.google.gson.Gson
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class ContactDataActivity : AppCompatActivity() {
+
+    lateinit var service: ApiService
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +43,18 @@ class ContactDataActivity : AppCompatActivity() {
         }
     }
 
+    fun getAllCountries(){
 
+        service.getAllPosts().enqueue(object: Callback<List<Countries>> {
+            override fun onResponse(call: Call<List<Countries>>?, response: Response<List<Countries>>?) {
+                val posts = response?.body()
+                Log.i("countries", Gson().toJson(posts))
+            }
+            override fun onFailure(call: Call<List<Countries>>?, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
+    }
 
     private fun nextClickButtonListener() {
         findViewById<Button>(R.id.contactNextButton).setOnClickListener {
@@ -45,6 +65,14 @@ class ContactDataActivity : AppCompatActivity() {
 
     // Calls  required logs
     private fun tryToGenerateLogs() {
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://jsonplaceholder.typicode.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        service = retrofit.create<ApiService>(ApiService::class.java)
+
+
 
         if (areFieldsRequiredFilled()) {
             generateContactLogs()

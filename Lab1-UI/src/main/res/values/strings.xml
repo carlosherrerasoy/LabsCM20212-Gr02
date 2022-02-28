@@ -19,4 +19,5 @@
     <string name="fechaNacimientoLabelText">Fecha nacimiento</string>
     <string name="seleccionarButtonText">Seleccionar</string>
     <string name="tituloPersonalData">Información Personal</string>
+    <string name="tituloContactData">Información de Contacto</string>
 </resources>

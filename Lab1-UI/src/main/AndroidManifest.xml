@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Labs20212Gr02">
         <activity
             android:name=".ContactDataActivity"
+            android:label="@string/tituloContactData"
             android:exported="true">
 
         </activity>
