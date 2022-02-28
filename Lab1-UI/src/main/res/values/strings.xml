@@ -20,4 +20,8 @@
     <string name="seleccionarButtonText">Seleccionar</string>
     <string name="tituloPersonalData">Información Personal</string>
     <string name="tituloContactData">Información de Contacto</string>
+    <string name="primaria">Primaria</string>
+    <string name="secundaria">Secundaria</string>
+    <string name="universitaria">Universitaria</string>
+    <string name="otra_escolaridad">Otra</string>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="escolaridad">
+        <item>@string/primaria</item>
+        <item>@string/secundaria</item>
+        <item>@string/universitaria</item>
+        <item>@string/otra_escolaridad</item>
+    </array>
+</resources>
