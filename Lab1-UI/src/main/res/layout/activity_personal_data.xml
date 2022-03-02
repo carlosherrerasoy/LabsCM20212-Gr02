@@ -15,7 +15,8 @@
         android:text="@string/nombresTitulo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/nombresTitulo" />
+        tools:text="@string/nombresTitulo"
+        />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/textView4"
@@ -99,7 +100,9 @@
         android:hint="@string/nombreHelpText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:singleLine="true"
+        android:inputType="textCapSentences"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/apellidosEditText"
@@ -113,7 +116,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/shapeableImageView"
-        app:layout_constraintTop_toBottomOf="@+id/nombreEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreEditText"
+        android:singleLine="true"
+        android:inputType="textCapSentences" />
 
 
     <com.google.android.material.textfield.TextInputEditText
@@ -126,7 +131,9 @@
         android:ems="10"
         android:inputType="date"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        android:singleLine="true"
+        android:hint="dd/mm/yyyy"/>
 
     <Spinner
         android:id="@+id/escolaridadSpinner"
