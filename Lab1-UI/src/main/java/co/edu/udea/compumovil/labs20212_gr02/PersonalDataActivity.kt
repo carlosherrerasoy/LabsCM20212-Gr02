@@ -1,5 +1,6 @@
 package co.edu.udea.compumovil.labs20212_gr02
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -16,9 +17,10 @@ class PersonalDataActivity : AppCompatActivity() {
     }
 
 
-    private fun tryToGenerateLogs() {
+    private fun tryToGenerateLogsAndOpenActivity() {
         if (areFieldsRequiredFilled()) {
             generatePersonalInfoLogs()
+            openContactActivity()
         }
     }
 
@@ -59,8 +61,13 @@ class PersonalDataActivity : AppCompatActivity() {
 
     private fun nextClickButtonListener() {
         findViewById<Button>(R.id.seleccionarButton).setOnClickListener {
-            tryToGenerateLogs()
+            tryToGenerateLogsAndOpenActivity()
         }
+    }
+
+    private fun openContactActivity() {
+        val contactActivity = Intent(this, ContactDataActivity::class.java)
+        startActivity(contactActivity)
     }
 
     private fun areFieldsRequiredFilled(): Boolean {
