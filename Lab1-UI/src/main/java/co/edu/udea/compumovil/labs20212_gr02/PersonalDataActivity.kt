@@ -91,8 +91,8 @@ class PersonalDataActivity : AppCompatActivity() {
         cambiarFechaNacimientoBoton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View) {
                 DatePickerDialog(this@PersonalDataActivity,
+                    R.style.MySpinnerDatePickerStyle,
                     dateSetListener,
-                    // set DatePickerDialog to point to today's date when it loads up
                     calendar.get(Calendar.YEAR),
                     calendar.get(Calendar.MONTH),
                     calendar.get(Calendar.DAY_OF_MONTH)).show()
