@@ -25,4 +25,5 @@
     <string name="universitaria">Unversity</string>
     <string name="otra_escolaridad">Other</string>
     <string name="escolaridad_titulo">Scholarship</string>
+    <string name="botonCambiarFechaNacimientoText">Change</string>
 </resources>
