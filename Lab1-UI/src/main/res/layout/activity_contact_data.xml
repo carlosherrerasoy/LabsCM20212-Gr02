@@ -8,20 +8,21 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/phoneEditText"
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+
         android:layout_width="296dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="@string/phone"
         android:inputType="number"
         android:lines="1"
+        app:errorEnabled="true"
         app:helperText="@string/required"
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toTopOf="@+id/emailEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -36,41 +37,54 @@
         app:layout_constraintVertical_bias="0.789"
         app:srcCompat="@drawable/ic_world_light" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/countryEditText"
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/countryEditText"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="296dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="12dp"
-        android:ems="10"
-        android:hint="@string/country"
-        android:inputType="textPersonName"
-        android:lines="1"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
+        android:layout_height="55dp"
+        android:layout_marginBottom="32dp"
+        android:inputType="none"
         app:layout_constraintBottom_toTopOf="@+id/cityEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:id="@+id/countryAutoCompleteText"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="@string/country"
+            android:inputType="textPersonName"
+            android:lines="1"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@android:color/holo_red_dark" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cityEditText"
-
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="296dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="36dp"
-        android:ems="10"
-        android:hint="@string/city"
-        android:inputType="textPersonName"
-        android:lines="1"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
+        android:layout_height="55dp"
+        android:layout_marginBottom="32dp"
+        android:inputType="none"
         app:layout_constraintBottom_toTopOf="@+id/addressEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/cityAutoCompleteText"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="@string/city"
+            android:inputType="textPersonName"
+            android:lines="1"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@android:color/holo_red_dark" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView10"
@@ -155,7 +169,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="296dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"

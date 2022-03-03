@@ -21,6 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
+        android:imeOptions="flagNoExtractUi"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -38,44 +39,68 @@
         app:layout_constraintBottom_toBottomOf="@+id/phoneEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.692"
-        app:layout_constraintStart_toEndOf="@+id/phoneEditText" />
+        app:layout_constraintStart_toEndOf="@+id/phoneEditText"
+        android:imeOptions="flagNoExtractUi"
+        />
 
-    <com.google.android.material.textfield.TextInputEditText
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/countryEditText"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="296dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="@string/country"
-        android:inputType="textPersonName"
-        android:lines="1"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
+        android:layout_height="55dp"
+        android:layout_marginBottom="32dp"
+        android:inputType="none"
         app:layout_constraintBottom_toTopOf="@+id/addressEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767" />
+        app:layout_constraintVertical_bias="0.991"
 
-    <com.google.android.material.textfield.TextInputEditText
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/countryAutoCompleteText"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="@string/country"
+            android:inputType="textPersonName"
+            android:lines="1"
+            app:helperText="@string/required"
+            android:imeOptions="flagNoExtractUi"
+            app:helperTextTextColor="@android:color/holo_red_dark" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cityEditText"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="296dp"
-        android:layout_height="45dp"
-        android:lines="1"
-        app:helperText="@string/required"
-        app:helperTextTextColor="@android:color/holo_red_dark"
-        android:ems="10"
-        android:hint="@string/city"
-        android:inputType="textPersonName"
+        android:layout_height="55dp"
+        android:layout_marginBottom="0dp"
+        android:inputType="none"
         app:layout_constraintBottom_toBottomOf="@+id/countryEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
-        app:layout_constraintStart_toEndOf="@+id/countryEditText" />
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toEndOf="@+id/countryEditText">
+
+        <AutoCompleteTextView
+            android:id="@+id/cityAutoCompleteText"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="@string/city"
+            android:inputType="textPersonName"
+            android:lines="1"
+            android:imeOptions="flagNoExtractUi"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@android:color/holo_red_dark" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/addressEditText"
+        android:imeOptions="flagNoExtractUi"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="296dp"
         android:layout_height="45dp"
@@ -90,7 +115,9 @@
         app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
+        app:layout_constraintVertical_bias="0.716"
+
+        />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView2"

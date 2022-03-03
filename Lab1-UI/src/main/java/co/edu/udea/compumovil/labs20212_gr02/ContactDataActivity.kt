@@ -3,24 +3,12 @@ package co.edu.udea.compumovil.labs20212_gr02
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import android.widget.EditText
 import android.util.Log
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import co.edu.udea.compumovil.labs20212_gr02.listCountries.ApiService
-import co.edu.udea.compumovil.labs20212_gr02.listCountries.Countries
-
-import com.google.gson.Gson
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-
-
+import android.widget.*
+import co.edu.udea.compumovil.labs20212_gr02.listCountries.Utils
 class ContactDataActivity : AppCompatActivity() {
 
-    lateinit var service: ApiService
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +17,38 @@ class ContactDataActivity : AppCompatActivity() {
         emailFocusListener()
         nextClickButtonListener()
         enterHiddenListener()
+        prepareCities()
+        prepareCountries()
 
     }
+
+    private fun prepareCountries() {
+
+
+        findViewById<EditText>(R.id.countryAutoCompleteText).setOnFocusChangeListener { _, focused ->
+            val autotextView = findViewById<AutoCompleteTextView>(R.id.countryAutoCompleteText)
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_list_item_1, Utils.getAllCountries(this)
+            )
+            autotextView.setAdapter(adapter)
+
+        }
+    }
+
+    private fun prepareCities() {
+
+        findViewById<EditText>(R.id.cityAutoCompleteText).setOnFocusChangeListener { _, focused ->
+            val autotextView = findViewById<AutoCompleteTextView>(R.id.cityAutoCompleteText)
+
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_list_item_1, Utils.getAllCitys(this)
+            )
+            autotextView.setAdapter(adapter)
+        }
+    }
+
 
     private fun enterHiddenListener() {
         findViewById<EditText>(R.id.addressEditText).setOnFocusChangeListener { _, focused ->
@@ -45,42 +63,16 @@ class ContactDataActivity : AppCompatActivity() {
         }
     }
 
-    fun getAllCountries() {
-
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://restcountries.com/v3.1/subregion/south%20america/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        service = retrofit.create<ApiService>(ApiService::class.java)
-
-
-        service.getAllCountries().enqueue(object : Callback<List<Countries>> {
-            override fun onResponse(
-                call: Call<List<Countries>>?,
-                response: Response<List<Countries>>?
-            ) {
-                val posts = response?.body()
-                Log.i("countries", posts.toString())
-            }
-
-            override fun onFailure(call: Call<List<Countries>>?, t: Throwable?) {
-                t?.printStackTrace()
-            }
-        })
-    }
 
     private fun nextClickButtonListener() {
         findViewById<Button>(R.id.contactNextButton).setOnClickListener {
             tryToGenerateLogs()
-            val i = 0
         }
     }
 
     // Calls  required logs
     private fun tryToGenerateLogs() {
 
-        getAllCountries()
 
         if (areFieldsRequiredFilled()) {
             generateContactLogs()
@@ -91,12 +83,13 @@ class ContactDataActivity : AppCompatActivity() {
     private fun areFieldsRequiredFilled(): Boolean {
         val phoneEditTextId = R.id.phoneEditText
         val emailEditTextId = R.id.emailEditText
-        val countryEditTextId = R.id.countryEditText
+        val countryAutoCompleteText = R.id.countryAutoCompleteText
 
         val validEmail: Boolean = validEmail()
         val validatedPhone: Boolean = validateIsEmptyEditText(phoneEditTextId)
         val validatedEmailEditTextId: Boolean = validateIsEmptyEditText(emailEditTextId)
-        val validatedCountryEditTextId: Boolean = validateIsEmptyEditText(countryEditTextId)
+        val validatedCountryEditTextId: Boolean =
+            validateIsEmptyAutoCompleteText(countryAutoCompleteText)
         if (validatedPhone && validatedEmailEditTextId && validatedCountryEditTextId && validEmail) {
             return true;
         }
@@ -106,7 +99,7 @@ class ContactDataActivity : AppCompatActivity() {
     //Generates logs for required and optional EditTexts
     private fun generateContactLogs() {
 
-        Log.i("Información de contacto", " ")
+        Log.i(getString(R.string.contactInformation), " ")
         Log.i(getString(R.string.phone), findViewById<EditText>(R.id.phoneEditText).text.toString())
         val address = findViewById<EditText>(R.id.addressEditText).text.toString()
 
@@ -119,13 +112,13 @@ class ContactDataActivity : AppCompatActivity() {
         Log.i(getString(R.string.email), findViewById<EditText>(R.id.emailEditText).text.toString())
         Log.i(
             getString(R.string.country),
-            findViewById<EditText>(R.id.countryEditText).text.toString()
+            findViewById<AutoCompleteTextView>(R.id.countryAutoCompleteText).text.toString()
         )
-        val city = findViewById<EditText>(R.id.cityEditText).text.toString()
+        val city = findViewById<AutoCompleteTextView>(R.id.cityAutoCompleteText).text.toString()
         if (!city.isEmpty()) {
             Log.i(
                 getString(R.string.city),
-                findViewById<EditText>(R.id.addressEditText).text.toString()
+                findViewById<AutoCompleteTextView>(R.id.cityAutoCompleteText).text.toString()
             )
         }
 
@@ -153,6 +146,17 @@ class ContactDataActivity : AppCompatActivity() {
         return true
     }
 
+    //Validates if AutoCompleteTextView is empty and if it is, sets the error message
+    private fun validateIsEmptyAutoCompleteText(fieldId: Int): Boolean {
+        val editText = findViewById<AutoCompleteTextView>(fieldId)
+        if (editText.text.toString().isEmpty()) {
+            editText.error = getString(R.string.required)
+            return false
+        }
+        return true
+    }
+
+
     //Validates email correct structure
     private fun validEmail(): Boolean {
         val emailText = findViewById<EditText>(R.id.emailEditText)
@@ -162,6 +166,8 @@ class ContactDataActivity : AppCompatActivity() {
         }
         return true
     }
-
+  private fun onSaveInstanceSate(outState:Bundle){
+      super.onSaveInstanceState(outState)
+  }
 
 }
