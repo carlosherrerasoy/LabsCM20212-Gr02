@@ -22,8 +22,10 @@
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toTopOf="@+id/emailEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.859" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView11"
@@ -116,7 +118,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
         android:layout_width="296dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="320dp"
+        android:layout_marginBottom="236dp"
         android:ems="10"
         android:hint="@string/address"
         android:inputType="textPersonName"
@@ -125,7 +127,7 @@
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -159,10 +161,10 @@
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.805"
+        app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addressEditText"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="0.175" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emailEditText"
@@ -178,7 +180,7 @@
         app:helperTextTextColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toTopOf="@+id/countryEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
 
